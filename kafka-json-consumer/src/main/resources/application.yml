@@ -1,0 +1,7 @@
+spring:
+  kafka:
+    consumer:
+      group-id: "json-consumer-group"
+      auto-offset-reset: earliest
+kafka-json-consumer:
+  user-topic: user_topic

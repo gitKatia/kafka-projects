@@ -25,3 +25,7 @@ Multi-module project of kafka consumers and producers using Spring boot
 ## Describe the topic
 ### head to the Kafka bin directory and execute the following command:
 ./kafka-topics.sh --bootstrap-server localhost:9092 --topic third_topic --describe
+## Create a topic named user_topic
+### head to the Kafka bin directory and execute the following command:
+./kafka-topics.sh --bootstrap-server localhost:9092 --create --topic user_topic --partitions 1 --replication-factor 1
+

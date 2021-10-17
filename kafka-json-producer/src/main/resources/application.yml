@@ -1,0 +1,2 @@
+kafka-json-producer:
+  user-topic: user_topic
