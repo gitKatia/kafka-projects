@@ -34,6 +34,7 @@ Multi-module project of kafka consumers and producers using Spring boot
 ## We have two consumer groups for this topic: p-analytics-cg and p-dashboard-cg
 ## We can describe the consumer groups using the commands below:
 ./kafka-consumer-groups.sh --bootstrap-server localhost:9092 --group p-analytics-cg --describe
+
 ./kafka-consumer-groups.sh --bootstrap-server localhost:9092 --group p-dashboard-cg --describe
 ## Create a topic named rebalanced_topic
 ### head to the Kafka bin directory and execute the following command:

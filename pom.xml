@@ -22,6 +22,8 @@
         <module>kafka-json-consumer</module>
         <module>kafka-product-producer</module>
         <module>kafka-product-consumer</module>
+        <module>kafka-rebalanced-consumer</module>
+        <module>kafka-rebalanced-producer</module>
     </modules>
     <dependencies>
         <dependency>

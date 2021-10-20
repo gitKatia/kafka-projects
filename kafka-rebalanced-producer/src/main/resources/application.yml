@@ -1,0 +1,2 @@
+kafka-rebalanced-producer:
+  rebalanced-topic: rebalanced_topic

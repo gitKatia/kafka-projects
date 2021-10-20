@@ -1,0 +1,7 @@
+kafka-rebalanced-consumer:
+  rebalanced-topic: rebalanced_topic
+spring:
+  kafka:
+    consumer:
+      group-id: "rebalanced-consumer-group"
+      auto-offset-reset: earliest
