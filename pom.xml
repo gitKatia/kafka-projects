@@ -20,6 +20,8 @@
         <module>kafka-key-consumer</module>
         <module>kafka-json-producer</module>
         <module>kafka-json-consumer</module>
+        <module>kafka-product-producer</module>
+        <module>kafka-product-consumer</module>
     </modules>
     <dependencies>
         <dependency>

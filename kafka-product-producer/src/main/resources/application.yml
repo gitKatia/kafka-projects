@@ -1,0 +1,2 @@
+kafka-product-producer:
+  product-topic: product_topic

@@ -1,0 +1,7 @@
+kafka-product-consumer:
+  product-topic: product_topic
+spring:
+  kafka:
+    consumer:
+      group-id: "product-consumer-group"
+      auto-offset-reset: earliest
