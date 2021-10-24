@@ -41,6 +41,9 @@ Multi-module project of kafka consumers and producers using Spring boot
 ./kafka-topics.sh --bootstrap-server localhost:9092 --create --topic rebalanced_topic --partitions 1 --replication-factor 1
 ## Add partition to the topic rebalanced_topic while consumer and producer are running
 ./kafka-topics.sh --bootstrap-server localhost:9092 --alter --topic rebalanced_topic --partitions 2
+## Create a topic named person_topic
+### head to the Kafka bin directory and execute the following command:
+./kafka-topics.sh --bootstrap-server localhost:9092 --create --topic person_topic --partitions 1 --replication-factor 1
 # Other useful scripts
 ## Create a topic named my_topic with one single partition
 ./kafka-topics.sh --bootstrap-server localhost:9092 --create --topic my_topic --partitions 1 --replication-factor 1

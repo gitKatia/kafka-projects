@@ -1,0 +1,23 @@
+package com.kat.kafkapersonconsumer.consumer;
+
+import lombok.extern.slf4j.Slf4j;
+import org.apache.kafka.clients.consumer.ConsumerRecord;
+import org.springframework.kafka.annotation.KafkaListener;
+import org.springframework.kafka.support.KafkaHeaders;
+import org.springframework.messaging.handler.annotation.Header;
+import org.springframework.stereotype.Service;
+
+@Service
+@Slf4j
+public class KafkaPersonConsumer {
+
+    @KafkaListener(topics = "${kafka-person-consumer.person-topic}", groupId = "person-group-id")
+    public void listenToAll(ConsumerRecord<String, String> message, @Header(KafkaHeaders.GROUP_ID) String groupId) {
+        log.info("Group id: {}, Partition : {}, Offset : {}, Message : {}", groupId, message.partition(), message.offset(), message.value());
+    }
+
+    @KafkaListener(topics = "${kafka-person-consumer.person-topic}", groupId = "person-age-group-id", containerFactory = "ageContainerFactory")
+    public void listenToAgeOlderThan(ConsumerRecord<String, String> message, @Header(KafkaHeaders.GROUP_ID) String groupId) {
+        log.info("Group id: {}, Partition : {}, Offset : {}, Message : {}", groupId, message.partition(), message.offset(), message.value());
+    }
+}

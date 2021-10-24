@@ -1,0 +1,2 @@
+kafka-person-producer:
+  person-topic: person_topic

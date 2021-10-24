@@ -1,0 +1,8 @@
+kafka-person-consumer:
+  person-topic: person_topic
+  age-filter: 9
+spring:
+  kafka:
+    consumer:
+      group-id: "person-consumer-group"
+      auto-offset-reset: earliest
