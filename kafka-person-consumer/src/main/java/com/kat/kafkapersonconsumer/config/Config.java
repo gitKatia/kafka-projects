@@ -58,7 +58,7 @@ public class Config {
             public boolean filter(ConsumerRecord<Object, Object> consumerRecord) {
                 try {
                     Person person = objectMapper.readValue(consumerRecord.value().toString(), Person.class);
-                    return person.getAge() >= topicsProperties.getAgeFilter();
+                    return person.getAge() <= topicsProperties.getAgeFilter();
                 } catch (IOException e) {
                     return false;
                 }
