@@ -22,10 +22,10 @@ import org.testcontainers.utility.DockerImageName;
 import java.io.IOException;
 import java.util.List;
 import java.util.UUID;
-import java.util.concurrent.ExecutionException;
 
 import static com.kat.kafkapersonconsumer.KafkaPersonConsumerApplicationConstants.PERSON_AGE_GROUP_ID;
 import static com.kat.kafkapersonconsumer.KafkaPersonConsumerApplicationConstants.PERSON_GROUP_ID;
+import static com.kat.kafkapersonconsumer.consumer.TestConfig.PERSON_TEST_TOPIC;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -43,8 +43,6 @@ public class KafkaPersonConsumerIntegrationTest {
     @Autowired
     private ObjectMapper objectMapper;
 
-    private static final String PERSON_TEST_TOPIC = "person_test_topic";
-
     @Container
     private static KafkaContainer KAFKA_CONTAINER = new KafkaContainer(DockerImageName.parse("confluentinc/cp-kafka:6.2.1"));
 
@@ -60,9 +58,9 @@ public class KafkaPersonConsumerIntegrationTest {
         assertTrue(KAFKA_CONTAINER.isRunning());
     }
 
-    @DisplayName("test a person is processed by a single consumer group because of filtering for age = age filter")
+    @DisplayName("test person is processed by a single consumer group because of filtering in age case")
     @Test
-    public void testRecordIsNotProcessedGivenEdgeCase() throws IOException, InterruptedException, ExecutionException {
+    public void testRecordIsFilteredGivenEdgeCase() throws IOException, InterruptedException {
 
         // Given
         int age = topicsProperties.getAgeFilter();
@@ -74,7 +72,7 @@ public class KafkaPersonConsumerIntegrationTest {
 
         // When
         String personAsString = objectMapper.writeValueAsString(person);
-        ListenableFuture<SendResult<String,String>> a = kafkaTemplate.send(PERSON_TEST_TOPIC, person.getPersonId(), personAsString);
+        ListenableFuture<SendResult<String,String>> a = kafkaTemplate.send(topicsProperties.getPersonTopic(), person.getPersonId(), personAsString);
         while(!a.isDone()) {
             Thread.sleep(1000);
         }
@@ -86,9 +84,9 @@ public class KafkaPersonConsumerIntegrationTest {
         assertThat(infoLogs.stream().filter(infoLog -> infoLog.contains(PERSON_AGE_GROUP_ID)).findFirst().isPresent()).isFalse();
     }
 
-    @DisplayName("test a person is processed by a single consumer group because of filtering")
+    @DisplayName("test person is processed by a single consumer group because of filtering")
     @Test
-    public void testRecordIsNotProcessedForAllAges() throws IOException, InterruptedException {
+    public void testRecordIsFiltered() throws IOException, InterruptedException {
 
         // Given
         int age = topicsProperties.getAgeFilter() - 1;
@@ -100,7 +98,8 @@ public class KafkaPersonConsumerIntegrationTest {
 
         // When
         String personAsString = objectMapper.writeValueAsString(person);
-        ListenableFuture<SendResult<String,String>> a = kafkaTemplate.send(PERSON_TEST_TOPIC, person.getPersonId(), personAsString);
+        ListenableFuture<SendResult<String,String>> a = kafkaTemplate.send(topicsProperties.getPersonTopic(), person.getPersonId(),
+                personAsString);
         while(!a.isDone()) {
             Thread.sleep(1000);
         }
@@ -112,9 +111,9 @@ public class KafkaPersonConsumerIntegrationTest {
         assertThat(infoLogs.stream().filter(infoLog -> infoLog.contains(PERSON_AGE_GROUP_ID)).findFirst().isPresent()).isFalse();
     }
 
-    @DisplayName("test a person is processed by both consumer groups")
+    @DisplayName("test person is processed by both consumer groups")
     @Test
-    public void testRecordIsProcessedForAllAges() throws IOException, InterruptedException {
+    public void testRecordIsNotFiltered() throws IOException, InterruptedException {
 
         // Given
         Person person = Person.builder()
@@ -125,7 +124,8 @@ public class KafkaPersonConsumerIntegrationTest {
 
         // When
         String personAsString = objectMapper.writeValueAsString(person);
-        ListenableFuture<SendResult<String,String>> a = kafkaTemplate.send(PERSON_TEST_TOPIC, person.getPersonId(), personAsString);
+        ListenableFuture<SendResult<String,String>> a = kafkaTemplate.send(topicsProperties.getPersonTopic(), person.getPersonId(),
+                personAsString);
         while(!a.isDone()) {
             Thread.sleep(1000);
         }
