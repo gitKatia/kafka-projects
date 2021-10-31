@@ -26,6 +26,8 @@
         <module>kafka-rebalanced-producer</module>
         <module>kafka-person-producer</module>
         <module>kafka-person-consumer</module>
+        <module>kafka-item-order-producer</module>
+        <module>kafka-item-order-consumer</module>
     </modules>
     <dependencies>
         <dependency>

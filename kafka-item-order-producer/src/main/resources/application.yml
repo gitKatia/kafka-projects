@@ -1,0 +1,2 @@
+kafka-item-order-producer:
+  item-order-topic: item_order_topic

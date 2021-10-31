@@ -6,7 +6,6 @@ import com.kat.kafkapersonconsumer.model.Person;
 import lombok.RequiredArgsConstructor;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
-import org.apache.kafka.common.serialization.StringDeserializer;
 import org.springframework.boot.autoconfigure.kafka.ConcurrentKafkaListenerContainerFactoryConfigurer;
 import org.springframework.boot.autoconfigure.kafka.KafkaProperties;
 import org.springframework.context.annotation.Bean;
@@ -35,11 +34,9 @@ public class Config {
 
     @Bean
     public ConsumerFactory<Object, Object> consumerFactory() {
-        Map<String, Object> properties = kafkaProperties.buildProducerProperties();
+        Map<String, Object> properties = kafkaProperties.buildConsumerProperties();
 
         properties.put(ConsumerConfig.METADATA_MAX_AGE_CONFIG, "180000");
-        properties.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
-        properties.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
 
         return new DefaultKafkaConsumerFactory<>(properties);
     }
