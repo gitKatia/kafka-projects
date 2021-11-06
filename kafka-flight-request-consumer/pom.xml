@@ -9,7 +9,8 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>kafka-item-order-consumer</artifactId>
+    <artifactId>kafka-flight-request-consumer</artifactId>
+
     <dependencies>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
