@@ -30,6 +30,8 @@
         <module>kafka-item-order-consumer</module>
         <module>kafka-publication-consumer</module>
         <module>kafka-publication-producer</module>
+        <module>kafka-flight-request-consumer</module>
+        <module>kafka-flight-request-producer</module>
     </modules>
     <dependencies>
         <dependency>

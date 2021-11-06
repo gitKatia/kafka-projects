@@ -1,0 +1,2 @@
+kafka-flight-request-producer:
+  flight-request-topic: flight_request_topic

@@ -54,6 +54,10 @@ Multi-module project of kafka consumers and producers using Spring boot
 ## Create a topic named book_topic
 ### head to the Kafka bin directory and execute the following command:
 ./kafka-topics.sh --bootstrap-server localhost:9092 --create --topic book_topic --partitions 1 --replication-factor 1
+# Retry Mechanism: kafka-flight-request-consumer and kafka-flight-request-producer
+## Create a topic named flight_request_topic
+### head to the Kafka bin directory and execute the following command:
+./kafka-topics.sh --bootstrap-server localhost:9092 --create --topic flight_request_topic --partitions 1 --replication-factor 1
 # Other useful scripts
 ## Create a topic named my_topic with one single partition
 ./kafka-topics.sh --bootstrap-server localhost:9092 --create --topic my_topic --partitions 1 --replication-factor 1

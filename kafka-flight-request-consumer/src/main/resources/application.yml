@@ -1,0 +1,7 @@
+kafka-flight-request-consumer:
+  flight-request-topic: flight_request_topic
+spring:
+  kafka:
+    consumer:
+      group-id: "flight-request-consumer-group"
+      auto-offset-reset: earliest
