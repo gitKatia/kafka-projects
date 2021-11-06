@@ -47,6 +47,13 @@ Multi-module project of kafka consumers and producers using Spring boot
 ## Create a topic named item_order_topic
 ### head to the Kafka bin directory and execute the following command:
 ./kafka-topics.sh --bootstrap-server localhost:9092 --create --topic item_order_topic --partitions 1 --replication-factor 1
+# Global error handler: kafka-publication-consumer and kafka-publication-producer
+## Create a topic named article_topic
+### head to the Kafka bin directory and execute the following command:
+./kafka-topics.sh --bootstrap-server localhost:9092 --create --topic article_topic --partitions 1 --replication-factor 1
+## Create a topic named book_topic
+### head to the Kafka bin directory and execute the following command:
+./kafka-topics.sh --bootstrap-server localhost:9092 --create --topic book_topic --partitions 1 --replication-factor 1
 # Other useful scripts
 ## Create a topic named my_topic with one single partition
 ./kafka-topics.sh --bootstrap-server localhost:9092 --create --topic my_topic --partitions 1 --replication-factor 1
