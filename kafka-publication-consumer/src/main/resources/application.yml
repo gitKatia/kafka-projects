@@ -1,0 +1,8 @@
+kafka-publication-consumer:
+  article-topic: article_topic
+  book-topic: book_topic
+spring:
+  kafka:
+    consumer:
+      group-id: "publication-consumer-group"
+      auto-offset-reset: earliest

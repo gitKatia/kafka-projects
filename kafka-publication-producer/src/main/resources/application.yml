@@ -1,0 +1,3 @@
+kafka-publication-producer:
+  article-topic: article_topic
+  book-topic: book_topic
