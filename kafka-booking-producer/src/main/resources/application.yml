@@ -1,0 +1,2 @@
+kafka-booking-producer:
+  booking-topic: booking_topic

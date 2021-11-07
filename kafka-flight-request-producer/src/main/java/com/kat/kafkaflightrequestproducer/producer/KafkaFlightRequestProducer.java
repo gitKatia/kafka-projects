@@ -25,6 +25,5 @@ public class KafkaFlightRequestProducer {
         } catch (JsonProcessingException e) {
             throw new RuntimeException("Exception while converting object. Message: "  + e.getMessage());
         }
-
     }
 }
