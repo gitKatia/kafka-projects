@@ -1,4 +1,4 @@
-package com.kat.kafkaflightrequestproducer.config;
+package com.kat.kafkabookingproducer.config;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -6,6 +6,6 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @ConfigurationProperties(prefix = TopicsProperties.TOPICS_PREFIX)
 @Data
 public class TopicsProperties {
-    static final String TOPICS_PREFIX = "kafka-flight-request-producer";
-    private String flightRequestTopic;
+    static final String TOPICS_PREFIX = "kafka-booking-producer";
+    private String bookingTopic;
 }

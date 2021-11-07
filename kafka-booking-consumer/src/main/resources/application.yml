@@ -1,0 +1,8 @@
+kafka-booking-consumer:
+  booking-topic: booking_topic
+  booking-topic-dlt: booking_topic_dlt
+spring:
+  kafka:
+    consumer:
+      group-id: "booking-consumer-group"
+      auto-offset-reset: earliest

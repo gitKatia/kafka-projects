@@ -1,6 +1,6 @@
-package com.kat.kafkaflightrequestproducer;
+package com.kat.kafkabookingproducer;
 
-import com.kat.kafkaflightrequestproducer.config.TopicsProperties;
+import com.kat.kafkabookingproducer.config.TopicsProperties;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -9,8 +9,8 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @SpringBootApplication
 @EnableConfigurationProperties(TopicsProperties.class)
 @EnableScheduling
-public class KafkaFlightRequestProducerApplication {
+public class KafkaBookingProducerApplication {
     public static void main(String[] args) {
-        SpringApplication.run(KafkaFlightRequestProducerApplication.class, args);
+        SpringApplication.run(KafkaBookingProducerApplication.class, args);
     }
 }

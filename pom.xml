@@ -32,6 +32,8 @@
         <module>kafka-publication-producer</module>
         <module>kafka-flight-request-consumer</module>
         <module>kafka-flight-request-producer</module>
+        <module>kafka-booking-consumer</module>
+        <module>kafka-booking-producer</module>
     </modules>
     <dependencies>
         <dependency>

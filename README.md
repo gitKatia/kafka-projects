@@ -58,6 +58,13 @@ Multi-module project of kafka consumers and producers using Spring boot
 ## Create a topic named flight_request_topic
 ### head to the Kafka bin directory and execute the following command:
 ./kafka-topics.sh --bootstrap-server localhost:9092 --create --topic flight_request_topic --partitions 1 --replication-factor 1
+# Dead Letter Topic: kafka-booking-consumer and kafka-booking-producer
+## Create a topic named booking_topic
+### head to the Kafka bin directory and execute the following command:
+./kafka-topics.sh --bootstrap-server localhost:9092 --create --topic booking_topic --partitions 1 --replication-factor 1
+## Create a topic named booking_topic_dlt
+### head to the Kafka bin directory and execute the following command:
+./kafka-topics.sh --bootstrap-server localhost:9092 --create --topic booking_topic_dlt --partitions 1 --replication-factor 1
 # Other useful scripts
 ## Create a topic named my_topic with one single partition
 ./kafka-topics.sh --bootstrap-server localhost:9092 --create --topic my_topic --partitions 1 --replication-factor 1
