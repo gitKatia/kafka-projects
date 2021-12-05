@@ -34,6 +34,11 @@
         <module>kafka-flight-request-producer</module>
         <module>kafka-booking-consumer</module>
         <module>kafka-booking-producer</module>
+        <module>kafka-order-producer</module>
+        <module>kafka-pattern-consumer</module>
+        <module>kafka-reward-consumer</module>
+        <module>kafka-storage-consumer</module>
+        <module>kafka-orders-model</module>
     </modules>
     <dependencies>
         <dependency>

@@ -80,3 +80,5 @@ Multi-module project of kafka consumers and producers using Spring boot
 ./kafka-consumer-groups.sh --bootstrap-server localhost:9092 --group my_consumer_group --execute --reset-offsets --to-offset 10 --topic my_topic:0
 ## Reset the offset of consumer group named my_consumer_group for all the topic partitions
 ./kafka-consumer-groups.sh --bootstrap-server localhost:9092 --group my_consumer_group --execute --reset-offsets --to-offset 10 --topic my_topic
+http://localhost:9001/kafka-orders/swagger-ui/
+http://localhost:9001/kafka-orders/h2
