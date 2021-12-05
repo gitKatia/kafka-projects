@@ -80,5 +80,9 @@ Multi-module project of kafka consumers and producers using Spring boot
 ./kafka-consumer-groups.sh --bootstrap-server localhost:9092 --group my_consumer_group --execute --reset-offsets --to-offset 10 --topic my_topic:0
 ## Reset the offset of consumer group named my_consumer_group for all the topic partitions
 ./kafka-consumer-groups.sh --bootstrap-server localhost:9092 --group my_consumer_group --execute --reset-offsets --to-offset 10 --topic my_topic
+# Example application : kafka-order-producer, kafka-reward-consumer, kafka-storage-consumer, kafka-pattern-consumer
+## kafka-order-producer exposes a Rest API. Swagger is available for the API at:
 http://localhost:9001/kafka-orders/swagger-ui/
+## kafka-order-producer saves order data to h2 database. H2 console can be accessed at:
 http://localhost:9001/kafka-orders/h2
+## Username and password are george, orwell
