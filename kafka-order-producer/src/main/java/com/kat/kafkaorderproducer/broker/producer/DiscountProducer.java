@@ -14,6 +14,6 @@ public class DiscountProducer {
     private final TopicsProperties topicsProperties;
 
     public void publish(DiscountMessage discountMessage) {
-        kafkaTemplate.send(topicsProperties.getPromotionsTopic(), discountMessage);
+        kafkaTemplate.send(topicsProperties.getDiscountsTopic(), discountMessage);
     }
 }

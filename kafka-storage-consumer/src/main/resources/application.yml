@@ -1,5 +1,6 @@
 kafka-storage-consumer:
   promotions-topic: promotions_topic
+  discounts-topic: discounts_topic
 spring:
   kafka:
     listener:

@@ -8,4 +8,5 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 public class TopicsProperties {
     static final String TOPICS_PREFIX = "kafka-storage-consumer";
     private String promotionsTopic;
+    private String discountsTopic;
 }

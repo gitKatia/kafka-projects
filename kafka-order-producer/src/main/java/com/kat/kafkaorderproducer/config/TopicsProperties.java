@@ -16,4 +16,7 @@ public class TopicsProperties {
     private String promotionsTopic;
     private int promotionsTopicReplicas;
     private int promotionsTopicPartitions;
+    private String discountsTopic;
+    private int discountsTopicReplicas;
+    private int discountsTopicPartitions;
 }
