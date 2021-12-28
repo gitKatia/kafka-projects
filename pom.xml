@@ -40,6 +40,7 @@
         <module>kafka-storage-consumer</module>
         <module>kafka-orders-model</module>
         <module>kafka-streams</module>
+        <module>kafka-streams-one</module>
     </modules>
     <dependencies>
         <dependency>
