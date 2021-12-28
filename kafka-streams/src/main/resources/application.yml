@@ -1,0 +1,12 @@
+spring:
+  kafka:
+    listener:
+      missing-topics-fatal: false
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+kafka-streams:
+  orders-topic: orders_topic
+  masked-orders-topic: masked_order_topic
+  masked-orders-topic-replicas: 1
+  masked-orders-topic-partitions: 1
