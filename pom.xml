@@ -39,6 +39,7 @@
         <module>kafka-reward-consumer</module>
         <module>kafka-storage-consumer</module>
         <module>kafka-orders-model</module>
+        <module>kafka-streams</module>
     </modules>
     <dependencies>
         <dependency>
@@ -49,7 +50,6 @@
             <groupId>org.springframework.kafka</groupId>
             <artifactId>spring-kafka</artifactId>
         </dependency>
-
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
