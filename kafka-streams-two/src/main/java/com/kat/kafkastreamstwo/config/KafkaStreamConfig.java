@@ -1,4 +1,4 @@
-package com.kat.kafkastreamsone.config;
+package com.kat.kafkastreamstwo.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
@@ -35,7 +35,7 @@ public class KafkaStreamConfig {
     public KafkaStreamsConfiguration kafkaStreamsConfiguration() {
 
         Map<String, Object> props = new HashMap<>();
-        props.put(StreamsConfig.APPLICATION_ID_CONFIG, "kafka-stream-one");
+        props.put(StreamsConfig.APPLICATION_ID_CONFIG, "kafka-stream-two");
         props.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
         props.put(StreamsConfig.DEFAULT_KEY_SERDE_CLASS_CONFIG, Serdes.String().getClass().getName());
         props.put(StreamsConfig.DEFAULT_VALUE_SERDE_CLASS_CONFIG, Serdes.String().getClass().getName());
@@ -46,26 +46,34 @@ public class KafkaStreamConfig {
     }
 
     @Bean
-    public NewTopic ordersPatternOneTopic() {
-        return TopicBuilder.name(topicsProperties.getOrdersPatternOneTopic())
-                .partitions(topicsProperties.getOrdersPatternOneTopicPartitions())
-                .replicas(topicsProperties.getOrdersPatternOneTopicReplicas())
+    public NewTopic ordersPatternTwoPlasticTopic() {
+        return TopicBuilder.name(topicsProperties.getOrdersPatternTwoPlasticTopic())
+                .partitions(topicsProperties.getOrdersPatternTwoPlasticTopicPartitions())
+                .replicas(topicsProperties.getOrdersPatternTwoPlasticTopicReplicas())
                 .build();
     }
 
     @Bean
-    public NewTopic ordersRewardOneTopic() {
-        return TopicBuilder.name(topicsProperties.getOrdersRewardOneTopic())
-                .partitions(topicsProperties.getOrdersRewardOneTopicPartitions())
-                .replicas(topicsProperties.getOrdersRewardOneTopicReplicas())
+    public NewTopic ordersPatternTwoNoPlasticTopic() {
+        return TopicBuilder.name(topicsProperties.getOrdersPatternTwoNoPlasticTopic())
+                .partitions(topicsProperties.getOrdersPatternTwoNoPlasticTopicPartitions())
+                .replicas(topicsProperties.getOrdersPatternTwoNoPlasticTopicReplicas())
                 .build();
     }
 
     @Bean
-    public NewTopic ordersStorageOneTopic() {
-        return TopicBuilder.name(topicsProperties.getOrdersStorageOneTopic())
-                .partitions(topicsProperties.getOrdersStorageOneTopicPartitions())
-                .replicas(topicsProperties.getOrdersStorageOneTopicReplicas())
+    public NewTopic ordersRewardTwoTopic() {
+        return TopicBuilder.name(topicsProperties.getOrdersRewardTwoTopic())
+                .partitions(topicsProperties.getOrdersRewardTwoTopicPartitions())
+                .replicas(topicsProperties.getOrdersRewardTwoTopicReplicas())
+                .build();
+    }
+
+    @Bean
+    public NewTopic ordersStorageTwoTopic() {
+        return TopicBuilder.name(topicsProperties.getOrdersStorageTwoTopic())
+                .partitions(topicsProperties.getOrdersStorageTwoTopicPartitions())
+                .replicas(topicsProperties.getOrdersStorageTwoTopicReplicas())
                 .build();
     }
 }
