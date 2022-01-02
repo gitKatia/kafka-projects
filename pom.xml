@@ -41,6 +41,7 @@
         <module>kafka-orders-model</module>
         <module>kafka-streams</module>
         <module>kafka-streams-one</module>
+        <module>kafka-streams-two</module>
     </modules>
     <dependencies>
         <dependency>
