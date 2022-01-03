@@ -1,0 +1,21 @@
+spring:
+  kafka:
+    listener:
+      missing-topics-fatal: false
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+kafka-streams-five:
+  orders-topic: orders_topic
+  orders-pattern-five-plastic-topic: order_pattern_five_plastic_topic
+  orders-pattern-five-plastic-topic-replicas: 1
+  orders-pattern-five-plastic-topic-partitions: 1
+  orders-pattern-five-no-plastic-topic: order_pattern_five_no_plastic_topic
+  orders-pattern-five-no-plastic-topic-replicas: 1
+  orders-pattern-five-topic-no-plastic-topic-partitions: 1
+  orders-reward-five-topic: order_reward_five_topic
+  orders-reward-five-topic-replicas: 1
+  orders-reward-five-topic-partitions: 1
+  orders-storage-five-topic: order_storage_five_topic
+  orders-storage-five-topic-replicas: 1
+  orders-storage-five-topic-partitions: 1
