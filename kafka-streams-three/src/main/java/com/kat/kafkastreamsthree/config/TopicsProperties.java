@@ -6,7 +6,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @ConfigurationProperties(prefix = TopicsProperties.TOPICS_PREFIX)
 @Data
 public class TopicsProperties {
-    static final String TOPICS_PREFIX = "kafka-streams-two";
+    static final String TOPICS_PREFIX = "kafka-streams-three";
     private String ordersTopic;
     private String ordersPatternThreePlasticTopic;
     private int  ordersPatternThreePlasticTopicReplicas;

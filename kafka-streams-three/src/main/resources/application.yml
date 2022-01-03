@@ -5,7 +5,7 @@ spring:
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
-kafka-streams-two:
+kafka-streams-three:
   orders-topic: orders_topic
   orders-pattern-three-plastic-topic: order_pattern_three_plastic_topic
   orders-pattern-three-plastic-topic-replicas: 1
