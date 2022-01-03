@@ -1,0 +1,24 @@
+spring:
+  kafka:
+    listener:
+      missing-topics-fatal: false
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+kafka-streams-six:
+  orders-topic: orders_topic
+  orders-pattern-six-plastic-topic: order_pattern_six_plastic_topic
+  orders-pattern-six-plastic-topic-replicas: 1
+  orders-pattern-six-plastic-topic-partitions: 1
+  orders-pattern-six-no-plastic-topic: order_pattern_six_no_plastic_topic
+  orders-pattern-six-no-plastic-topic-replicas: 1
+  orders-pattern-six-topic-no-plastic-topic-partitions: 1
+  orders-reward-six-topic: order_reward_six_topic
+  orders-reward-six-topic-replicas: 1
+  orders-reward-six-topic-partitions: 1
+  orders-storage-six-topic: order_storage_six_topic
+  orders-storage-six-topic-replicas: 1
+  orders-storage-six-topic-partitions: 1
+  orders-fraud-six-topic: order_fraud_six_topic
+  orders-fraud-six-topic-replicas: 1
+  orders-fraud-six-topic-partitions: 1
