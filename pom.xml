@@ -42,6 +42,7 @@
         <module>kafka-streams</module>
         <module>kafka-streams-one</module>
         <module>kafka-streams-two</module>
+        <module>kafka-streams-three</module>
     </modules>
     <dependencies>
         <dependency>
