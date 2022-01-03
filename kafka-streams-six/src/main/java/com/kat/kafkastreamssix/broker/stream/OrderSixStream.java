@@ -1,14 +1,15 @@
-package com.kat.kafkastreamsfive.broker.stream;
+package com.kat.kafkastreamssix.broker.stream;
 
-import com.kat.kafkastreamsfive.broker.message.OrderPatternMessage;
-import com.kat.kafkastreamsfive.broker.message.OrderRewardMessage;
-import com.kat.kafkastreamsfive.config.TopicsProperties;
-import com.kat.kafkastreamsfive.util.StreamUtils;
+import com.kat.kafkastreamssix.broker.message.OrderPatternMessage;
+import com.kat.kafkastreamssix.broker.message.OrderRewardMessage;
+import com.kat.kafkastreamssix.config.TopicsProperties;
+import com.kat.kafkastreamssix.util.StreamUtils;
 import com.kat.ordersmodel.OrderMessage;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.common.serialization.Serde;
 import org.apache.kafka.common.serialization.Serdes;
+import org.apache.kafka.streams.KeyValue;
 import org.apache.kafka.streams.StreamsBuilder;
 import org.apache.kafka.streams.kstream.Consumed;
 import org.apache.kafka.streams.kstream.KStream;
@@ -19,18 +20,18 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.support.KafkaStreamBrancher;
 import org.springframework.kafka.support.serializer.JsonSerde;
 
-import static com.kat.kafkastreamsfive.util.StreamUtils.*;
+import static com.kat.kafkastreamssix.util.StreamUtils.*;
 
 
 @Configuration
 @RequiredArgsConstructor
 @Slf4j
-public class OrderFiveStream {
+public class OrderSixStream {
 
     private final TopicsProperties topicsProperties;
 
     @Bean
-    public KStream<String, OrderMessage> kStreamFive(StreamsBuilder builder) {
+    public KStream<String, OrderMessage> kStreamSix(StreamsBuilder builder) {
         Serde<String> stringSerDe = Serdes.String();
         JsonSerde<OrderMessage> orderMessageJsonSerDe = new JsonSerde<>(OrderMessage.class);
         JsonSerde<OrderPatternMessage> orderPatternJsonSerDe = new JsonSerde<>(OrderPatternMessage.class);
@@ -47,8 +48,8 @@ public class OrderFiveStream {
         // Argument for defaultBranch method: consumer
         // onTopOf method: specifies the stream
         new KafkaStreamBrancher<String, OrderPatternMessage>()
-                .branch(isPlastic(), kStream -> kStream.to(topicsProperties.getOrdersPatternFivePlasticTopic(), producedWith))
-                .defaultBranch(kStream -> kStream.to(topicsProperties.getOrdersPatternFiveNoPlasticTopic(), producedWith))
+                .branch(isPlastic(), kStream -> kStream.to(topicsProperties.getOrdersPatternSixPlasticTopic(), producedWith))
+                .defaultBranch(kStream -> kStream.to(topicsProperties.getOrdersPatternSixNoPlasticTopic(), producedWith))
                 .onTopOf(maskedOrderStream.mapValues(StreamUtils::mapToOrderPattern))
                 .print(Printed.<String, OrderPatternMessage>toSysOut().withLabel("Order Pattern Stream"));
 
@@ -56,18 +57,21 @@ public class OrderFiveStream {
         KStream<String, OrderRewardMessage>  orderRewardStream = maskedOrderStream.filter(isLargeQuantity())
                 .filterNot(isCheap())
                 .map(mapToOrderRewardChangeKey());
-        orderRewardStream.to(topicsProperties.getOrdersRewardFiveTopic(), Produced.with(stringSerDe, orderRewardJsonSerDe));
+        orderRewardStream.to(topicsProperties.getOrdersRewardSixTopic(), Produced.with(stringSerDe, orderRewardJsonSerDe));
         orderRewardStream.print(Printed.<String, OrderRewardMessage>toSysOut().withLabel("Order Reward Stream"));
 
         // Fourth sink
         // Generating new key
         KStream<String, OrderMessage> storageStream = maskedOrderStream.selectKey(generateStorageKey());
-        storageStream.to(topicsProperties.getOrdersStorageFiveTopic(), Produced.with(stringSerDe, orderMessageJsonSerDe));
+        storageStream.to(topicsProperties.getOrdersStorageSixTopic(), Produced.with(stringSerDe, orderMessageJsonSerDe));
         storageStream.print(Printed.<String, OrderMessage>toSysOut().withLabel("Storage Order Stream"));
 
         // Stream for fraud
-        maskedOrderStream.filter((k, v) -> v.getOrderLocation().toUpperCase().startsWith("M"))
-                .foreach((k, v) -> this.reportFraud(v));
+        KStream<String, Double> fraudStream = maskedOrderStream.filter((k, v) -> v.getOrderLocation().toUpperCase().startsWith("M"))
+                .peek((k, v) -> this.reportFraud(v))
+                .map((k, v) -> KeyValue.pair(v.getOrderLocation().toUpperCase().charAt(0) + "***", v.getPrice() * v.getQuantity()));
+        fraudStream.to(topicsProperties.getOrdersFraudSixTopic(), Produced.with(stringSerDe, Serdes.Double()));
+        fraudStream.print(Printed.<String, Double>toSysOut().withLabel("Fraud Order Stream"));
 
         return maskedOrderStream;
     }
