@@ -15,6 +15,9 @@ kafka-order-producer:
   discounts-topic: discounts_topic
   discounts-topic-replicas: 1
   discounts-topic-partitions: 1
+  feedback-topic: feedback_topic
+  feedback-topic-replicas: 1
+  feedback-topic-partitions: 1
 spring:
   datasource:
     url: jdbc:h2:mem:orders

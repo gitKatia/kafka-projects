@@ -43,4 +43,12 @@ public class KafkaConfig {
                 .replicas(topicsProperties.getDiscountsTopicReplicas())
                 .build();
     }
+
+    @Bean
+    public NewTopic feedbackTopic() {
+        return TopicBuilder.name(topicsProperties.getFeedbackTopic())
+                .partitions(topicsProperties.getFeedbackTopicPartitions())
+                .replicas(topicsProperties.getFeedbackTopicReplicas())
+                .build();
+    }
 }

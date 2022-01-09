@@ -1,0 +1,12 @@
+spring:
+  kafka:
+    listener:
+      missing-topics-fatal: false
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+kafka-feedback-streams:
+  feedback-topic: feedback_topic
+  feedback-good-topic: feedback_good_topic
+  feedback-good-topic-replicas: 1
+  feedback-good-topic-partitions: 1
