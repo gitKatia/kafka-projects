@@ -22,7 +22,6 @@ public class OrderMessage {
 
     public OrderMessage copy() {
         OrderMessage copy = new OrderMessage();
-
         copy.setCreditCardNumber(this.creditCardNumber);
         copy.setItemName(this.itemName);
         copy.setOrderDateTime(this.orderDateTime);
