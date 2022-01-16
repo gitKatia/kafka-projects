@@ -1,0 +1,9 @@
+spring:
+  kafka:
+    listener:
+      missing-topics-fatal: false
+kafka-feedback-one-streams:
+  feedback-topic: feedback_topic
+  feedback-one-good-topic: feedback_one_good_topic
+  feedback-one-good-topic-replicas: 1
+  feedback-one-good-topic-partitions: 1
