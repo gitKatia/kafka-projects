@@ -7,6 +7,12 @@ kafka-feedback-two-streams:
   feedback-two-good-topic: feedback_two_good_topic
   feedback-two-good-topic-replicas: 1
   feedback-two-good-topic-partitions: 1
+  feedback-two-good-count-topic: feedback_two_good_count_topic
+  feedback-two-good-count-topic-replicas: 1
+  feedback-two-good-count-topic-partitions: 1
   feedback-two-bad-topic: feedback_two_bad_topic
   feedback-two-bad-topic-replicas: 1
   feedback-two-bad-topic-partitions: 1
+  feedback-two-bad-count-topic: feedback_two_bad_count_topic
+  feedback-two-bad-count-topic-replicas: 1
+  feedback-two-bad-count-topic-partitions: 1

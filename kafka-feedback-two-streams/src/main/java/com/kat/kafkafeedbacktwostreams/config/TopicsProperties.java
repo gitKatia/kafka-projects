@@ -11,7 +11,13 @@ public class TopicsProperties {
     private String feedbackTwoGoodTopic;
     private int feedbackTwoGoodTopicReplicas;
     private int feedbackTwoGoodTopicPartitions;
+    private String feedbackTwoGoodCountTopic;
+    private int feedbackTwoGoodCountTopicReplicas;
+    private int feedbackTwoGoodCountTopicPartitions;
     private String feedbackTwoBadTopic;
     private int feedbackTwoBadTopicReplicas;
     private int feedbackTwoBadTopicPartitions;
+    private String feedbackTwoBadCountTopic;
+    private int feedbackTwoBadCountTopicReplicas;
+    private int feedbackTwoBadCountTopicPartitions;
 }
