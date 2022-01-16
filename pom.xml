@@ -48,6 +48,7 @@
         <module>kafka-streams-six</module>
         <module>kafka-feedback-streams</module>
         <module>kafka-feedback-one-streams</module>
+        <module>kafka-feedback-two-streams</module>
     </modules>
     <dependencies>
         <dependency>
