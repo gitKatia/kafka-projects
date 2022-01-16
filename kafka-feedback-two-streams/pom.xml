@@ -8,12 +8,17 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-
     <artifactId>kafka-feedback-two-streams</artifactId>
     <dependencies>
         <dependency>
             <groupId>org.apache.kafka</groupId>
             <artifactId>kafka-streams</artifactId>
+            <exclusions>
+                <exclusion>
+                    <artifactId>rocksdbjni</artifactId>
+                    <groupId>org.rocksdb</groupId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
@@ -37,6 +42,12 @@
             <artifactId>kafka-orders-model</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>org.rocksdb</groupId>
+            <artifactId>rocksdbjni</artifactId>
+            <version>5.12.4</version>
+        </dependency>
+
     </dependencies>
 
     <build>
