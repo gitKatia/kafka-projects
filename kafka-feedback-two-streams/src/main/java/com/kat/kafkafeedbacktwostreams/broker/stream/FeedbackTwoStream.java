@@ -43,7 +43,7 @@ public class FeedbackTwoStream {
         goodCounts.print(Printed.<String,Long>toSysOut().withLabel("Good Feedback Two Count Stream"));
 
         KStream<String, Long> badCounts = feedbackStreams[1].groupByKey().count().toStream();
-        feedbackStreams[1].to(topicsProperties.getFeedbackTwoGoodTopic());
+        feedbackStreams[1].to(topicsProperties.getFeedbackTwoBadTopic());
         feedbackStreams[1].print(Printed.<String,String>toSysOut().withLabel("Bad Feedback Two Stream"));
 
         badCounts.to(topicsProperties.getFeedbackTwoBadCountTopic());
