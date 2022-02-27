@@ -62,7 +62,7 @@ public class KafkaStreamConfig {
     }
 
     @Bean
-    public NewTopic feedbackTwBadTopic() {
+    public NewTopic feedbackTwoBadTopic() {
         return TopicBuilder.name(topicsProperties.getFeedbackTwoBadTopic())
                 .partitions(topicsProperties.getFeedbackTwoBadTopicPartitions())
                 .replicas(topicsProperties.getFeedbackTwoBadTopicReplicas())

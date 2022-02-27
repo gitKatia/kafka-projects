@@ -1,0 +1,24 @@
+spring:
+  kafka:
+    listener:
+      missing-topics-fatal: false
+kafka-feedback-three-streams:
+  feedback-topic: feedback_topic
+  feedback-three-good-topic: feedback_three_good_topic
+  feedback-three-good-topic-replicas: 1
+  feedback-three-good-topic-partitions: 1
+  feedback-three-good-count-topic: feedback_three_good_count_topic
+  feedback-three-good-count-topic-replicas: 1
+  feedback-three-good-count-topic-partitions: 1
+  feedback-three-good-count-overall-topic: feedback_three_good_count_overall_topic
+  feedback-three-good-count-overall-topic-replicas: 1
+  feedback-three-good-count-overall-topic-partitions: 1
+  feedback-three-bad-topic: feedback_three_bad_topic
+  feedback-three-bad-topic-replicas: 1
+  feedback-three-bad-topic-partitions: 1
+  feedback-three-bad-count-topic: feedback_three_bad_count_topic
+  feedback-three-bad-count-topic-replicas: 1
+  feedback-three-bad-count-topic-partitions: 1
+  feedback-three-bad-count-overall-topic: feedback_three_bad_count_overall_topic
+  feedback-three-bad-count-overall-topic-replicas: 1
+  feedback-three-bad-count-overall-topic-partitions: 1
