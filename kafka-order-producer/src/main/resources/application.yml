@@ -18,7 +18,7 @@ kafka-order-producer:
   feedback-topic: feedback_topic
   feedback-topic-replicas: 1
   feedback-topic-partitions: 1
-  flash-sale-votes-topic: flash_sale_topic
+  flash-sale-votes-topic: flash_sale_votes_topic
   flash-sale-votes-topic-replicas: 1
   flash-sale-votes-topic-partitions: 1
 spring:
