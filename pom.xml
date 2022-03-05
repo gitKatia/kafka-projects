@@ -50,6 +50,7 @@
         <module>kafka-feedback-one-streams</module>
         <module>kafka-feedback-two-streams</module>
         <module>kafka-feedback-three-streams</module>
+        <module>kafka-flash-sale-vote-stream</module>
     </modules>
     <dependencies>
         <dependency>

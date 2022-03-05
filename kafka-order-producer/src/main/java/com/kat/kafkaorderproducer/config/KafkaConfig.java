@@ -51,4 +51,12 @@ public class KafkaConfig {
                 .replicas(topicsProperties.getFeedbackTopicReplicas())
                 .build();
     }
+
+    @Bean
+    public NewTopic flashSaleVotesTopic() {
+        return TopicBuilder.name(topicsProperties.getFlashSaleVotesTopic())
+                .partitions(topicsProperties.getFlashSaleVotesTopicPartitions())
+                .replicas(topicsProperties.getFlashSaleVotesTopicReplicas())
+                .build();
+    }
 }

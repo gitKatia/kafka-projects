@@ -1,0 +1,13 @@
+spring:
+  kafka:
+    listener:
+      missing-topics-fatal: false
+kafka-flash-sale-votes-stream:
+  flash-sale-votes-topic: flash_sale_votes_topic
+  flash-sale-votes-user-item-topic: flash_sale_votes_user_item_topic
+  flash-sale-votes-user-item-topic-partitions: 1
+  flash-sale-votes-user-item-topic-replicas: 1
+  flash-sale-votes-count-topic: flash_sale_votes_count_topic
+  flash-sale-votes-count-topic-partitions: 1
+  flash-sale-votes-count-topic-replicas: 1
+
