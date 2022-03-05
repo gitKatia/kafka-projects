@@ -22,4 +22,7 @@ public class TopicsProperties {
     private String feedbackTopic;
     private int feedbackTopicReplicas;
     private int feedbackTopicPartitions;
+    private String flashSaleVotesTopic;
+    private int flashSaleVotesTopicReplicas;
+    private int flashSaleVotesTopicPartitions;
 }
