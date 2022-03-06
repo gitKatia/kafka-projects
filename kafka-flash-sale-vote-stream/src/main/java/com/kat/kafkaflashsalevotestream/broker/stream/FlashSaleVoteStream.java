@@ -1,7 +1,6 @@
-package com.kat.kafkaflashsalevotesstream.broker.stream;
+package com.kat.kafkaflashsalevotestream.broker.stream;
 
-import com.kat.kafkaflashsalevotesstream.config.TopicsProperties;
-import com.kat.ordersmodel.FeedbackMessage;
+import com.kat.kafkaflashsalevotestream.config.TopicsProperties;
 import com.kat.ordersmodel.FlashSaleVoteMessage;
 import lombok.RequiredArgsConstructor;
 import org.apache.kafka.common.serialization.Serde;
@@ -18,7 +17,7 @@ import org.springframework.kafka.support.serializer.JsonSerde;
 
 @Configuration
 @RequiredArgsConstructor
-public class FlashSaleVotesStream {
+public class FlashSaleVoteStream {
 
     private final TopicsProperties topicsProperties;
 

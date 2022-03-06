@@ -51,6 +51,7 @@
         <module>kafka-feedback-two-streams</module>
         <module>kafka-feedback-three-streams</module>
         <module>kafka-flash-sale-vote-stream</module>
+        <module>kafka-flash-sale-vote-window-stream</module>
     </modules>
     <dependencies>
         <dependency>
