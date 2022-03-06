@@ -53,6 +53,7 @@
         <module>kafka-flash-sale-vote-stream</module>
         <module>kafka-flash-sale-vote-window-stream</module>
         <module>kafka-feedback-rating-stream</module>
+        <module>kafka-feedback-detailed-rating-stream</module>
     </modules>
     <dependencies>
         <dependency>

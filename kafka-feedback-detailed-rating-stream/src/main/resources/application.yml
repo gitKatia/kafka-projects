@@ -1,0 +1,9 @@
+spring:
+  kafka:
+    listener:
+      missing-topics-fatal: false
+kafka-feedback-detailed-rating-stream:
+  feedback-topic: feedback_topic
+  feedback-detailed-rating-topic: feedback_detailed_rating_topic
+  feedback-detailed-rating-topic-partitions: 1
+  feedback-detailed-rating-topic-replicas: 1
