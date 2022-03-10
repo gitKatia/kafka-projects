@@ -59,4 +59,12 @@ public class KafkaConfig {
                 .replicas(topicsProperties.getFlashSaleVotesTopicReplicas())
                 .build();
     }
+
+    @Bean
+    public NewTopic inventoryTopic() {
+        return TopicBuilder.name(topicsProperties.getInventoryTopic())
+                .partitions(topicsProperties.getInventoryTopicPartitions())
+                .replicas(topicsProperties.getInventoryTopicReplicas())
+                .build();
+    }
 }

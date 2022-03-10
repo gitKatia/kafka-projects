@@ -21,6 +21,9 @@ kafka-order-producer:
   flash-sale-votes-topic: flash_sale_votes_topic
   flash-sale-votes-topic-replicas: 1
   flash-sale-votes-topic-partitions: 1
+  inventory-topic: inventory_topic
+  inventory-topic-replicas: 1
+  inventory-topic-partitions: 1
 spring:
   datasource:
     url: jdbc:h2:mem:orders
