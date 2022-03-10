@@ -55,6 +55,7 @@
         <module>kafka-feedback-rating-stream</module>
         <module>kafka-feedback-detailed-rating-stream</module>
         <module>kafka-inventory-stream</module>
+        <module>kafka-inventory-reduce-stream</module>
     </modules>
     <dependencies>
         <dependency>
