@@ -1,0 +1,10 @@
+spring:
+  kafka:
+    listener:
+      missing-topics-fatal: false
+kafka-inventory-stream:
+  inventory-topic: inventory_topic
+  inventory-total-topic: inventory_total_topic
+  inventory-total-topic-partitions: 1
+  inventory-total-topic-replicas: 1
+

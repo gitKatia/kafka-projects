@@ -25,4 +25,7 @@ public class TopicsProperties {
     private String flashSaleVotesTopic;
     private int flashSaleVotesTopicReplicas;
     private int flashSaleVotesTopicPartitions;
+    private String inventoryTopic;
+    private int inventoryTopicReplicas;
+    private int inventoryTopicPartitions;
 }
