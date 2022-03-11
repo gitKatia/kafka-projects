@@ -1,0 +1,10 @@
+spring:
+  kafka:
+    listener:
+      missing-topics-fatal: false
+kafka-timestamp-extractor-inventory-stream:
+  inventory-topic: inventory_topic
+  inventory-timestamp-topic: inventory_timestamp_topic
+  inventory-timestamp-topic-partitions: 1
+  inventory-timestamp-topic-replicas: 1
+
