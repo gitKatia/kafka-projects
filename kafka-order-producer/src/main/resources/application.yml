@@ -24,6 +24,12 @@ kafka-order-producer:
   inventory-topic: inventory_topic
   inventory-topic-replicas: 1
   inventory-topic-partitions: 1
+  online-order-topic: online_order_topic
+  online-order-topic-replicas: 1
+  online-order-topic-partitions: 1
+  online-payment-topic: online_payment_topic
+  online-payment-topic-replicas: 1
+  online-payment-topic-partitions: 1
 spring:
   datasource:
     url: jdbc:h2:mem:orders

@@ -28,4 +28,10 @@ public class TopicsProperties {
     private String inventoryTopic;
     private int inventoryTopicReplicas;
     private int inventoryTopicPartitions;
+    private String onlineOrderTopic;
+    private int onlineOrderTopicReplicas;
+    private int onlineOrderTopicPartitions;
+    private String onlinePaymentTopic;
+    private int onlinePaymentTopicReplicas;
+    private int onlinePaymentTopicPartitions;
 }

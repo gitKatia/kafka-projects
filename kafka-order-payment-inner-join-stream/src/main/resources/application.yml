@@ -1,0 +1,10 @@
+spring:
+  kafka:
+    listener:
+      missing-topics-fatal: false
+kafka-order-payment-inner-join-stream:
+  online-order-topic: online_order_topic
+  online-payment-topic: online_payment_topic
+  online-order-payment-topic: online_inner_join_order_payment_topic
+  online-order-payment-topic-partitions: 1
+  online-order-payment-topic-replicas: 1
