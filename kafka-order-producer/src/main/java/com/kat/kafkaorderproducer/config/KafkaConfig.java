@@ -67,4 +67,20 @@ public class KafkaConfig {
                 .replicas(topicsProperties.getInventoryTopicReplicas())
                 .build();
     }
+
+    @Bean
+    public NewTopic onlineOrderTopic() {
+        return TopicBuilder.name(topicsProperties.getOnlineOrderTopic())
+                .partitions(topicsProperties.getOnlineOrderTopicPartitions())
+                .replicas(topicsProperties.getOnlineOrderTopicReplicas())
+                .build();
+    }
+
+    @Bean
+    public NewTopic onlinePaymentTopic() {
+        return TopicBuilder.name(topicsProperties.getOnlinePaymentTopic())
+                .partitions(topicsProperties.getOnlinePaymentTopicPartitions())
+                .replicas(topicsProperties.getOnlinePaymentTopicReplicas())
+                .build();
+    }
 }
