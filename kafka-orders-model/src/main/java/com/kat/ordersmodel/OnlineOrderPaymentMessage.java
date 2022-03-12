@@ -1,4 +1,4 @@
-package com.kat.kafkaorderpaymentinnerjoinstream.broker.message;
+package com.kat.ordersmodel;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
