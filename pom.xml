@@ -58,6 +58,7 @@
         <module>kafka-inventory-reduce-stream</module>
         <module>kafka-timestamp-extractor-inventory-stream</module>
         <module>kafka-hopping-window-inventory-stream</module>
+        <module>kafka-order-payment-inner-join-stream</module>
     </modules>
     <dependencies>
         <dependency>
