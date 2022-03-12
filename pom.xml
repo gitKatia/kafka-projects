@@ -57,6 +57,7 @@
         <module>kafka-inventory-stream</module>
         <module>kafka-inventory-reduce-stream</module>
         <module>kafka-timestamp-extractor-inventory-stream</module>
+        <module>kafka-hopping-window-inventory-stream</module>
     </modules>
     <dependencies>
         <dependency>
