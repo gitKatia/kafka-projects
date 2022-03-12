@@ -1,6 +1,6 @@
-package com.kat.kafkaorderpaymentinnerjoinstream.broker.stream;
+package com.kat.kafkaorderpaymentleftjoinstream.broker.stream;
 
-import com.kat.kafkaorderpaymentinnerjoinstream.config.TopicsProperties;
+import com.kat.kafkaorderpaymentleftjoinstream.config.TopicsProperties;
 import com.kat.ordersmodel.OnlineOrderMessage;
 import com.kat.ordersmodel.OnlineOrderPaymentMessage;
 import com.kat.ordersmodel.OnlinePaymentMessage;
@@ -14,6 +14,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.support.serializer.JsonSerde;
 
 import java.time.Duration;
+import java.util.Optional;
 
 @Configuration
 @RequiredArgsConstructor
@@ -38,7 +39,8 @@ public class OrderPaymentStream {
 
         // join
         KStream<String, OnlineOrderPaymentMessage> onlineOrderPaymentStream = onlineOrderStream
-                .join(onlinePaymentStream, this::joinOnlineOrderPayment, JoinWindows.of(Duration.ofHours(1)),
+                // in case of outer join I would use outerJoin method
+                .leftJoin(onlinePaymentStream, this::joinOnlineOrderPayment, JoinWindows.of(Duration.ofHours(1)),
                         StreamJoined.with(stringSerDe, onlineOrderJsonSerDe, onlinePaymentJsonSerDe));
         onlineOrderPaymentStream.print(Printed.<String, OnlineOrderPaymentMessage>toSysOut().withLabel("Online Order Payment Stream"));
         onlineOrderPaymentStream.to(topicsProperties.getOnlineOrderPaymentTopic(), Produced.with(stringSerDe, onlineOrderPaymentJsonSerDe));
@@ -46,15 +48,18 @@ public class OrderPaymentStream {
         return onlineOrderStream;
     }
 
-    private OnlineOrderPaymentMessage joinOnlineOrderPayment(OnlineOrderMessage onlineOrderMessage, OnlinePaymentMessage onlineOrderPayment) {
-        return OnlineOrderPaymentMessage.builder()
+    private OnlineOrderPaymentMessage joinOnlineOrderPayment(OnlineOrderMessage onlineOrderMessage, OnlinePaymentMessage onlinePaymentMessage) {
+        OnlineOrderPaymentMessage.OnlineOrderPaymentMessageBuilder builder = OnlineOrderPaymentMessage.builder()
                 .onlineOrderNumber(onlineOrderMessage.getOnlineOrderNumber())
                 .orderDateTime(onlineOrderMessage.getOrderDateTime())
                 .totalAmount(onlineOrderMessage.getTotalAmount())
-                .username(onlineOrderMessage.getUsername())
-                .paymentDateTime(onlineOrderPayment.getPaymentDateTime())
-                .paymentMethod(onlineOrderPayment.getPaymentMethod())
-                .paymentNumber(onlineOrderPayment.getPaymentNumber())
-                .build();
+                .username(onlineOrderMessage.getUsername());
+        // Being a left join onlinePaymentMessage with the same key can be null
+        Optional.ofNullable(onlinePaymentMessage).ifPresent(message ->
+            builder.paymentDateTime(message.getPaymentDateTime())
+                    .paymentMethod(message.getPaymentMethod())
+                    .paymentNumber(message.getPaymentNumber()));
+        // In case of an outer join both onlineOrderMessage and onlinePaymentMessage could be null
+        return builder.build();
     }
 }
