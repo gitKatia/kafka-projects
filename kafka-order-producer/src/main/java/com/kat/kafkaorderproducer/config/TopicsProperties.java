@@ -40,4 +40,10 @@ public class TopicsProperties {
     private String premiumUserTopic;
     private int premiumUserTopicReplicas;
     private int premiumUserTopicPartitions;
+    private String subscriptionPurchaseTopic;
+    private int subscriptionPurchaseTopicReplicas;
+    private int subscriptionPurchaseTopicPartitions;
+    private String userSubscriptionTopic;
+    private int userSubscriptionTopicReplicas;
+    private int userSubscriptionTopicPartitions;
 }

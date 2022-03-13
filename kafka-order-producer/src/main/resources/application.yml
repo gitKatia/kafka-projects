@@ -36,6 +36,12 @@ kafka-order-producer:
   premium-user-topic: premium_user_topic
   premium-user-topic-replicas: 1
   premium-user-topic-partitions: 1
+  subscription-purchase-topic: subscription_purchase_topic
+  subscription-purchase-topic-replicas: 1
+  subscription-purchase-topic-partitions: 1
+  user-subscription-topic: user_subscription_topic
+  user-subscription-topic-replicas: 1
+  user-subscription-topic-partitions: 1
 spring:
   datasource:
     url: jdbc:h2:mem:orders
