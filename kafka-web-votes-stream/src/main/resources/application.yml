@@ -1,0 +1,8 @@
+spring:
+  kafka:
+    listener:
+      missing-topics-fatal: false
+kafka-web-votes-stream:
+  web-layout-vote-topic: web_layout_vote_topic
+  web-color-vote-topic: web_color_vote_topic
+  web-color-layout-topic: web_color_layout_topic

@@ -46,4 +46,10 @@ public class TopicsProperties {
     private String userSubscriptionTopic;
     private int userSubscriptionTopicReplicas;
     private int userSubscriptionTopicPartitions;
+    private String webLayoutVoteTopic;
+    private int webLayoutVoteTopicReplicas;
+    private int webLayoutVoteTopicPartitions;
+    private String webColorVoteTopic;
+    private int webColorVoteTopicReplicas;
+    private int webColorVoteTopicPartitions;
 }

@@ -115,4 +115,20 @@ public class KafkaConfig {
                 .replicas(topicsProperties.getUserSubscriptionTopicReplicas())
                 .build();
     }
+
+    @Bean
+    public NewTopic webLayoutVoteTopic() {
+        return TopicBuilder.name(topicsProperties.getWebLayoutVoteTopic())
+                .partitions(topicsProperties.getWebColorVoteTopicPartitions())
+                .replicas(topicsProperties.getWebColorVoteTopicReplicas())
+                .build();
+    }
+
+    @Bean
+    public NewTopic webColorVoteTopic() {
+        return TopicBuilder.name(topicsProperties.getWebColorVoteTopic())
+                .partitions(topicsProperties.getWebColorVoteTopicPartitions())
+                .replicas(topicsProperties.getWebColorVoteTopicReplicas())
+                .build();
+    }
 }
