@@ -34,4 +34,10 @@ public class TopicsProperties {
     private String onlinePaymentTopic;
     private int onlinePaymentTopicReplicas;
     private int onlinePaymentTopicPartitions;
+    private String premiumPurchaseTopic;
+    private int premiumPurchaseTopicReplicas;
+    private int premiumPurchaseTopicPartitions;
+    private String premiumUserTopic;
+    private int premiumUserTopicReplicas;
+    private int premiumUserTopicPartitions;
 }
