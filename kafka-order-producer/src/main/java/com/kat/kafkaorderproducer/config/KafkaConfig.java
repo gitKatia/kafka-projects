@@ -99,4 +99,20 @@ public class KafkaConfig {
                 .replicas(topicsProperties.getPremiumUserTopicReplicas())
                 .build();
     }
+
+    @Bean
+    public NewTopic subscriptionPurchaseTopic() {
+        return TopicBuilder.name(topicsProperties.getSubscriptionPurchaseTopic())
+                .partitions(topicsProperties.getSubscriptionPurchaseTopicPartitions())
+                .replicas(topicsProperties.getSubscriptionPurchaseTopicReplicas())
+                .build();
+    }
+
+    @Bean
+    public NewTopic userSubscriptionTopic() {
+        return TopicBuilder.name(topicsProperties.getUserSubscriptionTopic())
+                .partitions(topicsProperties.getUserSubscriptionTopicPartitions())
+                .replicas(topicsProperties.getUserSubscriptionTopicReplicas())
+                .build();
+    }
 }

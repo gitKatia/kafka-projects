@@ -61,6 +61,7 @@
         <module>kafka-order-payment-inner-join-stream</module>
         <module>kafka-order-payment-left-join-stream</module>
         <module>kafka-premium-offer-stream</module>
+        <module>kafka-subscription-offer-stream</module>
     </modules>
     <dependencies>
         <dependency>

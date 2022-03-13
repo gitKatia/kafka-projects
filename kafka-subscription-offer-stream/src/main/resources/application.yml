@@ -1,0 +1,11 @@
+spring:
+  kafka:
+    listener:
+      missing-topics-fatal: false
+kafka-subscription-offer-stream:
+  subscription-purchase-topic: subscription_purchase_topic
+  user-subscription-topic: user_subscription_topic
+  subscription-offer-topic: subscription_offer_topic
+  subscription-offer-topic-partitions: 1
+  subscription-offer-topic-replicas: 1
+
