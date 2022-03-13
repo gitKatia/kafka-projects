@@ -86,3 +86,11 @@ http://localhost:9001/kafka-orders/swagger-ui/
 ## kafka-order-producer saves order data to h2 database. H2 console can be accessed at:
 http://localhost:9001/kafka-orders/h2
 ## Username and password are george, orwell
+## Streams
+Feedback
+Flash sale
+Inventory
+Order Payment
+Premium
+Subscription
+Votes
