@@ -49,8 +49,10 @@ public class PremiumOfferStream {
 	}
 
 	private PremiumOfferMessage joiner(PremiumPurchaseMessage premiumPurchaseMessage, PremiumUserMessage premiumPurchaseUser) {
+		// if using leftJoin we need to consider that premiumPurchaseUser can be null
+		// KStream-KTable outerJoin is not supported
 		return PremiumOfferMessage.builder()
-				.username(premiumPurchaseMessage.getUsername())
+				.username(premiumPurchaseUser.getUsername())
 				.purchaseNumber(premiumPurchaseMessage.getPurchaseNumber())
 				.level(premiumPurchaseUser.getLevel())
 				.build();
