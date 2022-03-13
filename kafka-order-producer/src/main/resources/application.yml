@@ -42,6 +42,12 @@ kafka-order-producer:
   user-subscription-topic: user_subscription_topic
   user-subscription-topic-replicas: 1
   user-subscription-topic-partitions: 1
+  web-layout-vote-topic: web_layout_vote_topic
+  web-layout-vote-topic-replicas: 1
+  web-layout-vote-topic-partitions: 1
+  web-color-vote-topic: web_color_vote_topic
+  web-color-vote-topic-replicas: 1
+  web-color-vote-topic-partitions: 1
 spring:
   datasource:
     url: jdbc:h2:mem:orders
