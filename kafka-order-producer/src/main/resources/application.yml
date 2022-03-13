@@ -30,6 +30,12 @@ kafka-order-producer:
   online-payment-topic: online_payment_topic
   online-payment-topic-replicas: 1
   online-payment-topic-partitions: 1
+  premium-purchase-topic: premium_purchase_topic
+  premium-purchase-topic-replicas: 1
+  premium-purchase-topic-partitions: 1
+  premium-user-topic: premium_user_topic
+  premium-user-topic-replicas: 1
+  premium-user-topic-partitions: 1
 spring:
   datasource:
     url: jdbc:h2:mem:orders

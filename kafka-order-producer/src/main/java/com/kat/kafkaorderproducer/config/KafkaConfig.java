@@ -83,4 +83,20 @@ public class KafkaConfig {
                 .replicas(topicsProperties.getOnlinePaymentTopicReplicas())
                 .build();
     }
+
+    @Bean
+    public NewTopic premiumPurchaseTopic() {
+        return TopicBuilder.name(topicsProperties.getPremiumPurchaseTopic())
+                .partitions(topicsProperties.getPremiumUserTopicPartitions())
+                .replicas(topicsProperties.getPremiumPurchaseTopicReplicas())
+                .build();
+    }
+
+    @Bean
+    public NewTopic premiumUserTopic() {
+        return TopicBuilder.name(topicsProperties.getPremiumUserTopic())
+                .partitions(topicsProperties.getPremiumUserTopicPartitions())
+                .replicas(topicsProperties.getPremiumUserTopicReplicas())
+                .build();
+    }
 }

@@ -1,0 +1,10 @@
+spring:
+  kafka:
+    listener:
+      missing-topics-fatal: false
+kafka-premium-offer-stream:
+  premium-purchase-topic: premium_purchase_topic
+  premium-user-topic: premium_user_topic
+  premium-offer-topic: premium_offer_topic
+  premium-offer-topic-partitions: 1
+  premium-offer-topic-replicas: 1
